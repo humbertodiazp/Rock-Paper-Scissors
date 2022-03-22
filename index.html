@@ -7,19 +7,43 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1 style="text-align: center"> ROCK PAPER SCISSORS</h1>
-    <h2 style="text-align: center">THE GAME OF CHANCE</h2>
-    <div class="form">
-        <label for="weaponField">Select your Weapon: </label><input type="text" id="weaponField" class="weaponField">
-        <input type="submit" value="Submit Selection" class="weaponSubmit">
-      </div>
-      <div class="resultParas">
+  
+      <style>
+        html {
+          font-family: sans-serif;
+        }
+        body {
+          width: 50%;
+          max-width: 800px;
+          min-width: 480px;
+          margin: 0 auto;
+        }
+        .results {
+          color: white;
+          padding: 3px;
+        }
+      </style>  
+
+    <h1> ROCK PAPER SCISSORS</h1>
+    <h2>THE GAME OF CHANCE</h2>
+
+
+ 
+      
+    <div class="resultParas">
         <p class="results"></p>
-        <p class="playerWins"></p>
-        <p class="computerWins"></p>
-      </div>
+    </div>
+
+
+</body>
 
 <script>
+    let weapon = prompt("You are up agaisnt the machine in a game of rock, paper, scissors! Choose wisely and good luck!");
+    const weapons = ['rock', 'paper', 'scissors'];
+    const computerSelection = computerPlay(weapons);
+    const playerSelection = weapon.toLocaleLowerCase();
+   
+    const results = document.querySelector('.results');
 
 
     function computerPlay(weapons) {
@@ -29,20 +53,36 @@
         }
     }
 
-    const weapons = ['Rock', 'Paper', 'Scissors'];
-    const computerSelection = computerPlay(weapons);
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection == computerSelection) {
+            results.textContent = "You tied."
+            results.style.backgroundColor = 'orange';
+        } else if (playerSelection == "paper" && computerSelection == "rock"){
+            results.textContent = "You Win!"
+            results.style.backgroundColor = 'green';
+        } else if (playerSelection == "scissors" && computerSelection == "paper"){
+            results.textContent = "You Win!"
+            results.style.backgroundColor = 'green';
+        } else if (playerSelection == "rock" && computerSelection == "paper") {
+            results.textContent = "You Win!"
+            results.style.backgroundColor = 'green';
+        } else {
+            results.textContent = "You Loose..."
+            results.style.backgroundColor = 'red';
+        }
+}
 
-    // function playRound(playerSelection, computerSelection){
-    //     if 
+
+    
+    console.log(playRound(playerSelection, computerSelection));
 
 
-    // }
-
+    
 
 
 
 
 </script>
     
-</body>
+
 </html>
