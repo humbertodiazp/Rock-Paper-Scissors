@@ -1,110 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-</head>
-<body>
-  
-      <style>
-        html {
-          font-family: sans-serif;
-        }
-        body {
-          width: 50%;
-          max-width: 800px;
-          min-width: 480px;
-          margin: 0 auto;
-        }
-        .results {
-          color: white;
-          padding: 3px;
-        }
-      </style>  
-
-    <h1> ROCK PAPER SCISSORS</h1>
-    <h2>THE GAME OF CHANCE</h2>
-
-
- 
-      
-    <div class="resultParas">
-        <p class="results"></p>
-        <!-- look at this later and see if it is causing the problem -->
-    </div>
-
-
-</body>
-
-<script>
-    const weapon = prompt("You are up agaisnt the machine in a game of rock, paper, scissors! Choose wisely and good luck!");
-    const weapons = ['rock', 'paper', 'scissors'];
-    const computerSelection = computerPlay(weapons);
-    const playerSelection = weapon.toLocaleLowerCase();
-   
-    const results = document.querySelector('.results');
-
-
-    function computerPlay(weapons) {
-        for (let i = 0; i<2; i++){
-            const random = weapons[Math.floor(Math.random() * weapons.length)];
-            return random
-        }
-    }
-
-    function playRound(playerSelection, computerSelection) {
-        if (playerSelection == computerSelection) {
-            results.textContent = "You tied."
-            results.style.backgroundColor = 'orange';
-        } else if (playerSelection == "paper" && computerSelection == "rock"){
-            results.textContent = "You Win!"
-            results.style.backgroundColor = 'green';
-        } else if (playerSelection == "scissors" && computerSelection == "paper"){
-            results.textContent = "You Win!"
-            results.style.backgroundColor = 'green';
-        } else if (playerSelection == "rock" && computerSelection == "paper") {
-            results.textContent = "You Win!"
-            results.style.backgroundColor = 'green';
-        } else {
-            results.textContent = "You Loose..."
-            results.style.backgroundColor = 'red';
-        }
-    console.log(weapon);
-}
-
-total = 0;
-
-    function game(playRound) {
+    <body>
+        <script>
+                
         
-        for (let i = 0; i < 5; i++) {
+            function computerPlay() {
+                const weapons = ['rock', 'paper', 'scissors'];
+                    for (let i = 0; i<2; i++){
+                    const random = weapons[Math.floor(Math.random() * weapons.length)];
+        
+                return random;
+                }
+            }
+            // console.log(computerPlay());
+        
+        
+            function playerPlay() {
+                const weapon = window.prompt("You are up agaisnt the machine in a game of rock, paper, scissors! Choose wisely and good luck!");
+        
+                // /missing lowercase conversion/
+                return weapon.toLocaleLowerCase();
+            }
+            x = playerPlay();
+            // console.log(playerPlay())
             
-            if (playRound == "You Win!"){
-                total += total; 
-            } 
-            if (total => 3){
-                console.log("You beat the machine!"); 
-            } else {
-                console.log("The machine has won this battle...");
-            }   
+            function playRound (playerSelection, computerSelection){
+                computerSelection = computerPlay();
+                playerSelection = x;
+                
+                if (playerSelection == computerSelection) {
+                    alert("You tied");
+                    return  "You tied!";
+                } else if (playerSelection == "paper" && computerSelection == "rock"){
+                    alert("You Win!");
+                    return "You Win!";
+                } else if (playerSelection == "scissors" && computerSelection == "paper"){
+                    alert("You Win!");
+                    return "You Win!";
+                } else if (playerSelection == "rock" && computerSelection == "paper") {
+                    alert("You Win!");
+                    return "You Win!";
+                } else {
+                    alert("You Loose!");
+                    return "You Loose!"; 
+            }
+        }
+         
+        total = 0;
+        
+         function game() {
+        
             
+           //Play game 5 times
+           for (let i = 0; i < 5; i++) {
+             // Call playRound function, passing in newly returned values
+             // from the playerPlay and computerPlay functions and log to console
+             console.log(playRound(playerPlay(), computerPlay()));
+             if (playRound == "You Win!"){
+                        total += total;
+                    } else if (playRound == "You lose!"){
+                        total -= total;
+                    } 
+           }
         }
         
-    }
-
-    console.log(playRound(playerSelection, computerSelection));
-
-
-    
-
-
-    
-
-
-
-
-</script>
-    
-
-</html>
+        
+        
+        function results (){
+            if (total >= 1){
+                alert ("Congrats! You beat the computer.");
+                } else if (total <= -1){
+                    alert ("You have been defeated by the machine!");
+                }
+                else {
+                alert ("Not, bad! You tied with the computer.");
+                }
+        }
+        
+        game();
+        results();
+        
+        // function game(playRound) {
+            
+        //     total = '';
+        //         for (let i = 0; i < 5; i++) {
+                    // if (playRound == "You Win!"){
+                    //     total += total;
+                    // } else if (playRound == "You lose!"){
+                    //     total -= total;
+                    // } 
+        //         }
+        //        return total; 
+        //     }
+        
+        //     console.log(game(playRound))
+        
+        // // results = (game(playRound))
+        
+            // if (total >= 1){
+            //         return "Congrats! You beat the computer.";
+            //         } else if (total <= -1){
+            //         return "You have been defeated by the machine!"
+            //         }
+            //         else {
+            //         return "Not, bad! You tied with the computer."
+            //         }
+        
+        
+        </script>
+            
+        </body>
+        </html>
