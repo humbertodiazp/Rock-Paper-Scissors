@@ -3,7 +3,7 @@
     <body>
         <script>
                 
-        
+       //generate's a random weapon choice for the computer  
         function computerPlay() {
             const weapons = ['rock', 'paper', 'scissors'];
                 for (let i = 0; i<2; i++){
@@ -12,18 +12,20 @@
             return random;
             }
         }
-            // test console.log(computerPlay());
+            //  console.log(computerPlay());
         
-        
+        //prompt player to make a weapon selection 
         function playerPlay() {
             const weapon = window.prompt("You are up agaisnt the machine in a game of rock, paper, scissors! Choose wisely and good luck!");
         
             return weapon.toLocaleLowerCase();
             }
-            
-            // testconsole.log(playerPlay())
-    total = [];  
-    //array to collect playRound results//           
+            //  console.log(playerPlay())
+
+        //total var collects playRound results in an array         
+        total = [];  
+
+    
         function playRound (playerPlay, computerPlay){
                 
             if (playerPlay == computerPlay) {
@@ -32,7 +34,7 @@
             } else if (playerPlay == "paper" && computerPlay == "rock"){
                  alert("You Win!");
                 return "You Win!" && total.push(1);
-                //used push function to add 1 to the total variable//
+                //call the push function to add 1 to the total variable//
             } else if (playerPlay == "scissors" && computerPlay == "paper"){
                 alert("You Win!");
                 return "You Win!" && total.push(1);
@@ -42,11 +44,11 @@
             } else {
                 alert("You Loose!");
                 return "You Loose!" && total.push(-1); 
-                 //used push function to subtract 1 to the total variable//
+                 //call the push function to subtract 1 to the total variable//
 
             }
         }
-      
+      // 
         function game() {  
             
 
@@ -64,7 +66,7 @@
         
     sum = 0;
 
-    // iterate through total variable  and adds up the results
+    // iterates through the total variable and returns the sum
     for (let i = 0; i < total.length; i++) {
         sum += total[i];
     }
@@ -73,7 +75,7 @@
 
     console.log(sum);
 
-    // results are calculated based on algorithm below 
+    // after 5 rounds results are calculated based on algorithm below 
 
     if (sum >= 1){
         alert ("Congrats! You beat the computer.");
