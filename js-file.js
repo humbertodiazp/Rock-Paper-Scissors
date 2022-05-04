@@ -1,26 +1,9 @@
-const divs = document.querySelectorAll('div');
-const button = document.querySelector('button');
+const btn = document.querySelector('button');
 
-// function logText(e) {
-//   console.log(this.classList.value);
-//   // e.stopPropagation(); // stop bubbling!
-//   // console.log(this);
-// }
-
-// divs.forEach(div => div.addEventListener('click', logText, {
-//   capture: false,
-//   once: true
-// }));
-
-// button.addEventListener('click', () => {
-//   console.log('Click!!!');
-// }, {
-//   once: true
-// });
-
-btn.addEventListener('click', function (e) {
-    console.log(e.target);
-  });
+function findId (btn)
+{
+    console.log(btn.id);
+}
 
 
 
@@ -28,51 +11,63 @@ btn.addEventListener('click', function (e) {
 
 
 
-// //generate's a random weapon choice for the computer  
-// function computerPlay() {
-//     const weapons = ['rock', 'paper', 'scissors'];
-//         for (let i = 0; i<2; i++){
-//         const random = weapons[Math.floor(Math.random() * weapons.length)];
 
-//     return random;
-//     }
-// }
+//generate's a random weapon choice for the computer  
+function computerPlay() {
+    const weapons = ['rock', 'paper', 'scissors'];
+        for (let i = 0; i<2; i++){
+        const random = weapons[Math.floor(Math.random() * weapons.length)];
+
+    return random;
+    }
+}
 //     //  console.log(computerPlay());
 
-// //prompt player to make a weapon selection 
-// function playerPlay() {
-//     const weapon = window.prompt("You are up agaisnt the machine in a game of rock, paper, scissors! Choose wisely and good luck!");
+//prompt player to make a weapon selection 
+function playerPlay() {
+    
+    return findId;
+    }
+    //  console.log(playerPlay())
 
-//     return weapon.toLocaleLowerCase();
-//     }
-//     //  console.log(playerPlay())
+//total var collects playRound results in an array         
+playerTotal = [];  
+computerTotal = []
+total = []
+const playerScore = document.querySelector('.player-score')
+const computerScore = document.querySelector('.computer-score')
+playerScore.textContent =  individualScore();
+computerScore.textContent = individualScore();
 
-// //total var collects playRound results in an array         
-// total = [];  
+function individualScore() {
+    for (let i = 0; i < total.length; i++) {
+        sum += total[i];
+    }
+    return sum;
+}
 
 
-// function playRound (playerPlay, computerPlay){
+
+function playRound (playerPlay, computerPlay){
         
-//     if (playerPlay == computerPlay) {
-//         alert("You tied");
-//         return  "You tied!";
-//     } else if (playerPlay == "paper" && computerPlay == "rock"){
-//             alert("You Win!");
-//         return "You Win!" && total.push(1);
-//         //call the push function to add 1 to the total variable//
-//     } else if (playerPlay == "scissors" && computerPlay == "paper"){
-//         alert("You Win!");
-//         return "You Win!" && total.push(1);
-//     } else if (playerPlay == "rock" && computerPlay == "paper") {
-//         alert("You Win!");
-//         return "You Win!" && total.push(1);
-//     } else {
-//         alert("You Loose!");
-//         return "You Loose!" && total.push(-1); 
-//             //call the push function to subtract 1 to the total variable//
+    if (playerPlay == computerPlay) {
+        alert("You tied");
+        return  "You tied!";
+    } else if (playerPlay == "paper" && computerPlay == "rock"){
+        return "You Win!" && total.push(1) && playerTotal.push(1);
+        //call the push function to add 1 to the total variable//
+        // call push function again to add 1 to player total not just overall total 
+    } else if (playerPlay == "scissors" && computerPlay == "paper"){
+        return "You Win!" && total.push(1) && playerTotal.push(1);
+    } else if (playerPlay == "rock" && computerPlay == "paper") {
+        return "You Win!" && total.push(1) && playerTotal.push(1);
+    } else {
+        return "You Loose!" && total.push(-1) && computerTotal.push(1); 
+            //call the push function to subtract 1 to the total variable//
+            // call push function again to add 1 to computer total 
 
-//     }
-// }
+    }
+}
 // // 
 // function game() {  
     
@@ -102,10 +97,11 @@ btn.addEventListener('click', function (e) {
 
 // // after 5 rounds results are calculated based on algorithm below 
 
-// if (sum >= 1){
-// alert ("Congrats! You beat the computer.");
-// } else if (sum <= -1){
-// alert ("You have been defeated by the machine!"); 
-// } else {
-// alert ("Not, bad! You tied with the computer.");
-// }
+if (sum >= 1){
+alert ("Congrats! You beat the computer.");
+//need to change alert to a div and transform that div to say these words maybe?
+} else if (sum <= -1){
+alert ("You have been defeated by the machine!"); 
+} else {
+alert ("Not, bad! You tied with the computer.");
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="js-.js" defer></script>
+    <script src="js-file.js" defer></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,16 +27,14 @@
 
 
 <div class="weapons">
-    <button id="btn" class="weapon">
+    <button onclick="findId(this)" id="rock" class="weapon">
         Rock
     </button>
-    <button   id="btn" class="weapon">
-        <kbd>Paper</kbd>
-        <span class="sound"></span>
+    <button onclick="findId(this)"  id="paper" class="weapon">
+        Paper
     </button>
-    <button   id="btn" class="weapon">
-        <kbd>Scissors</kbd>
-        <span class="sound"></span>
+    <button onclick="findId(this)" id="scissors" class="weapon">
+        Scissors
     </button> 
 </div>
 
