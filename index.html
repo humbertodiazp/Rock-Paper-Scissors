@@ -20,25 +20,25 @@
     <h4>Can you beat the computer?</h4>
     <div class="scores"> 
         <div class="score"> Best out of 5 Wins</div>
-        <div class="player-score">1</div>
-        <div class="computer-score">0</div>
+        <div id="player-score">0</div>
+        <div id="computer-score">0</div>
     </div>
 </div>
 
 
 <div class="weapons">
-    <button onclick="findId(this)" id="rock" class="weapon">
+    <button onclick="playRound()" onclick="addScore()" value="ROCK" id="ROCK" class="weapon">
         Rock
     </button>
-    <button onclick="findId(this)"  id="paper" class="weapon">
+    <button onclick="playRound()"  value="PAPER" id="PAPER" class="weapon">
         Paper
     </button>
-    <button onclick="findId(this)" id="scissors" class="weapon">
+    <button onclick="playRound()" value="SCISSORS" id="SCISSORS" class="weapon">
         Scissors
     </button> 
 </div>
 
-
+<p id="Results"> </p>
 
 </body>
 </html>
