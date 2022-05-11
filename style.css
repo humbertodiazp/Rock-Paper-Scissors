@@ -1,0 +1,77 @@
+
+
+  html {
+    font-size: 10px;
+    background: url('./denys-nevozhai-HoSHJ7KCZdQ-unsplash.jpg') bottom center;
+    background-size: cover;
+  }
+  
+  body,html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    
+  }
+  
+
+  .weapons {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 150px;
+  }
+  
+  .again {
+    padding: 10px 15px;
+    background-color: white;
+    visibility: hidden;
+}
+
+  button {
+    border: .4rem solid black;
+    border-radius: .5rem;
+    margin: 1rem;
+    line-height: 1;
+    font-size: 17px;
+    padding: 1rem .5rem;
+    width: 10rem;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 .5rem black;
+  }
+
+  button:hover {
+    color: #001F3F;
+    background-color: #fff;
+  }
+
+  .scores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;   
+    margin-top: 60px;
+  }
+
+  .score {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px; 
+  }
