@@ -1,59 +1,86 @@
+let computerScore = 0;
+let playerScore = 0;
 
 const rockButton = document.getElementById('ROCK')
 const paperButton = document.getElementById('PAPER')
 const scissorsButton = document.getElementById('SCISSORS')
-const humanScore = document.querySelector('.yourPoints.yourScore');
-const compScore = document.querySelector('#computer-score');
-const resultPrompt = document.querySelector('.result-prompt');
+const resultPrompt = document.querySelector('#result-prompt');
 
+const myArray = ["Rock", "Paper", "Scissors"];
 
 function computerPlay() {
-    const weapons = ['rock', 'paper', 'scissors'];
-        for (let i = 0; i<2; i++){
-        const random = weapons[Math.floor(Math.random() * weapons.length)];
-
-    return random;
-    }
+  return myArray[~~(Math.random() * myArray.length)];
 }
 
-
-function playRound (){
-        
-    if (playerSelection == computerSelection) {
-        resultPrompt = 'Hey  you <strong>TIED!</strong>' 
+function playRound (playerSelection, computerSelection ){
+    computerSelection = computerSelection.toUpperCase()
+    if (playerSelection == computerSelection) 
+     {
+        resultPrompt.textContent = 'Hey you tied. Try again!'; 
 
     } else if (
         (playerSelection == "PAPER" && computerSelection == "ROCK") ||
         (playerSelection == "SCISSORS" && computerSelection == "PAPER") ||
         (playerSelection == "ROCK" && computerSelection == "PAPER")
      ) {
-        resultPrompt = 'Hey  you <strong>TIED!</strong>' ;
+        playerScore = ++playerScore;
+        keepPlayerScore();
+        resultPrompt.textContent = 'Hey  you WIN!' ;
+        
      } 
      else {
-        resultPrompt = 'Hey  you <strong>TIED!</strong>' ;
+        computerScore = ++computerScore;
+        keepCompScore()
+        resultPrompt.textContent = 'Hey  you LOST!' ;
     }
-
+    if (playerScore == 5) {
+       resultPrompt.textContent = 'Hey  you DID IT! You beat the computer!' ;
+       button.style.visibility = 'visible';
+    } else if (computerScore == 5){
+        resultPrompt.textContent = 'The computer WON! this battle. But the war rages.';
+        button.style.visibility = 'visible';
+    }
+    console.log(playRound)
 }
 
+// clicking rock
+rockButton.addEventListener('click', () => {
+    playerSelection = 'ROCK';
+    computerSelection = computerPlay()
+    playRound(playerSelection, computerSelection)
+})
 
+// clicking paper
+paperButton.addEventListener('click', () => {
+    playerSelection = 'PAPER';
+    computerSelection = computerPlay()
+    playRound(playerSelection, computerSelection)
+})
 
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const click = button.querySelector("id");
-      playerSelection = click.alt.toLowerCase();
-  
-      playRound(playerSelection, computerSelection);
-  
-      if (playerScore === 5 || computerScore === 5) {
-        declareWinner();
-      }
-    });
-  });
+// clicking scissors
+scissorsButton.addEventListener('click', () => {
+    playerSelection = 'SCISSORS';
+    computerSelection = computerPlay()
+    playRound(playerSelection, computerSelection)
+})
 
-  const myArray = ["Rock", "Paper", "Scissors"];
+// clicking button
+const button = document.querySelector('.again');
+button.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    resultPrompt.textContent = "";
+    button.style.visibility = 'hidden';
+})
 
-function computerPlay() {
-  return myArray[~~(Math.random() * myArray.length)];
-}
+function keepPlayerScore() {
+    let playerScoreBox = document.querySelector("#player-score");
+    playerScoreBox.textContent = playerScore;
+  }
+  function keepCompScore() {
+    let compScoreBox = document.querySelector("#computer-score");
+    compScoreBox.textContent = computerScore;
+  }
+
 
   

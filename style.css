@@ -34,12 +34,16 @@
     margin-top: 150px;
   }
   
+  .again {
+    padding: 10px 15px;
+    background-color: white;
+    visibility: hidden;
+}
+
   button {
     border: .4rem solid black;
     border-radius: .5rem;
     margin: 1rem;
-    transition: all .5s ease;
-    text-transform: uppercase;
     line-height: 1;
     font-size: 17px;
     padding: 1rem .5rem;
