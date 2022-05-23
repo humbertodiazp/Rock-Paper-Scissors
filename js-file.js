@@ -36,10 +36,16 @@ function playRound (playerSelection, computerSelection ){
     if (playerScore == 5) {
        resultPrompt.textContent = 'Hey  you DID IT! You beat the computer!' ;
        button.style.visibility = 'visible';
+       rockButton.style.visibility = 'hidden';
+        paperButton.style.visibility = 'hidden';
+        scissorsButton.style.visibility = 'hidden';
     } else if (computerScore == 5){
         resultPrompt.textContent = 'The computer WON! this battle. But the war rages.';
         button.style.visibility = 'visible';
-    }
+        rockButton.style.visibility = 'hidden';
+        paperButton.style.visibility = 'hidden';
+        scissorsButton.style.visibility = 'hidden';
+    } 
     console.log(playRound)
 }
 
@@ -66,11 +72,17 @@ scissorsButton.addEventListener('click', () => {
 
 // clicking button
 const button = document.querySelector('.again');
+
+let playerScoreBox = document.querySelector("#player-score");
+let compScoreBox = document.querySelector("#computer-score");
+
 button.addEventListener('click', () => {
+    document.querySelector("#player-score").textContent = 0;
+    document.querySelector("#computer-score").textContent = 0;
     playerScore = 0;
     computerScore = 0;
     resultPrompt.textContent = "";
-    button.style.visibility = 'hidden';
+    weapons.style.visibility = 'hidden'
 })
 
 function keepPlayerScore() {
