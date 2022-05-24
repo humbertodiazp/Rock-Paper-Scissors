@@ -8,6 +8,7 @@ const resultPrompt = document.querySelector('#result-prompt');
 
 const myArray = ["Rock", "Paper", "Scissors"];
 
+
 function computerPlay() {
   return myArray[~~(Math.random() * myArray.length)];
 }
@@ -34,9 +35,9 @@ function playRound (playerSelection, computerSelection ){
         resultPrompt.textContent = 'Hey  you LOST!' ;
     }
     if (playerScore == 5) {
-       resultPrompt.textContent = 'Hey  you DID IT! You beat the computer!' ;
-       button.style.visibility = 'visible';
-       rockButton.style.visibility = 'hidden';
+        resultPrompt.textContent = 'Hey  you DID IT! You beat the computer!' ;
+        button.style.visibility = 'visible';
+        rockButton.style.visibility = 'hidden';
         paperButton.style.visibility = 'hidden';
         scissorsButton.style.visibility = 'hidden';
     } else if (computerScore == 5){
@@ -82,7 +83,10 @@ button.addEventListener('click', () => {
     playerScore = 0;
     computerScore = 0;
     resultPrompt.textContent = "";
-    weapons.style.visibility = 'hidden'
+    button.style.visibility = 'hidden'
+    rockButton.style.visibility = 'visible';
+    paperButton.style.visibility = 'visible';
+    scissorsButton.style.visibility = 'visible';
 })
 
 function keepPlayerScore() {
